@@ -1,7 +1,3 @@
-"""
-@author: Payam Dibaeinia
-"""
-
 import os
 
 
