@@ -1,7 +1,3 @@
-"""
-@author: Payam Dibaeinia
-"""
-
 import numpy
 import shutil
 from Sampler import gtSampler
