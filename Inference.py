@@ -1,7 +1,3 @@
-"""
-@author: Payam Dibaeinia
-"""
-
 from absl import flags
 from absl import logging
 from absl import app
