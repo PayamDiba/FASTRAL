@@ -1,5 +1,5 @@
 """
-@author: Payam Dibaeinia
+@author:
 """
 
 import numpy as np
@@ -10,43 +10,39 @@ import os
 
 class gtSampler (object):
 
-    def __init__(self, nTree, nSample, replacement = True):
+    def __init__(self, nTree, nSample, k, replacement = True):
+        """
+        nTree and nSample are assumed to be a python list
+        """
         self.nTree = nTree
         self.nSample = nSample
         self.replacement = replacement
+        self.k = k
 
-    def create_samples (self, path_read, path_write):
+    def create_samples(self, path_read, path_write):
+        """
+        path_read: path to the input gene tree to create samples from
+        path_write: path to the ouput directory were sampled trees will be written
+        """
+        last_ID = 0
+        for curr_nSample, curr_nTree in zip (self.nSample, self.nTree):
+            self._sample(curr_nSample, curr_nTree, last_ID, path_read, path_write)
+            last_ID += curr_nSample
+
+
+
+    def _sample (self, num_samples, tree_per_sample, last_sample_ID, path_read, path_write):
         """
         path_read: path to the input gene tree to create samples from
         path_write: path to the ouput directory were sampled trees will be written
         """
 
-        self._readInputGT(path_read)
-        self._buildSamples()
-        self._writeSamples(path_write)
-
-
-    def _readInputGT (self, path_read):
-        self.allGTs = []
-        with open(path_read) as f:
-            for l in f:
-                self.allGTs.append(l.strip())
-
-        self.k = len(self.allGTs) # holds the number of input gene trees
-
-    def _buildSamples(self):
-        self.samplesDict = {}
-
-        for s in range(self.nSample):
-            gtIDs = np.random.choice(self.k, size = self.nTree, replace = self.replacement)
-            self.samplesDict[s] = np.take(self.allGTs, gtIDs, axis = 0)
-
-    def _writeSamples(self, path_write):
-        for s in range(self.nSample):
-            currTrees = self.samplesDict[s]
-
-            os.makedirs(path_write + '/Sample_' + str(s))
-            with open(path_write + '/Sample_' + str(s) + '/sampledGeneTrees', 'w') as f:
-                for t in currTrees:
-                    f.write(t)
-                    f.write('\n')
+        for s in range(num_samples):
+            os.mkdir(path_write + '/Sample_' + str(s + last_sample_ID))
+            gtIDs = np.random.choice(self.k, size = tree_per_sample, replace = self.replacement)
+            with open(path_write + '/Sample_' + str(s + last_sample_ID) + '/sampledGeneTrees', 'w') as fw:
+                with open(path_read) as fr:
+                    for lID, l in enumerate(fr):
+                        if lID in gtIDs:
+                            fw.write(l.strip())
+                            fw.write('\n')

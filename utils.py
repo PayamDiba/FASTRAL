@@ -1,5 +1,5 @@
 """
-@author: Payam Dibaeinia
+@author:
 """
 
 import os
@@ -22,4 +22,4 @@ def make_dir(path, writable = False):
             path = '/'.join(path_list)
 
     if not os.path.exists(path):
-        os.mkdir(path)
+        os.makedirs(path)

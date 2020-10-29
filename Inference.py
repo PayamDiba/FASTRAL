@@ -1,18 +1,19 @@
 """
-@author: Payam Dibaeinia
+@author:
 """
 
 from absl import flags
 from absl import logging
 from absl import app
-from ASTRALID import ASTRALID
+from FASTRAL import FASTRAL
 from utils import make_dir
 
 
 FLAGS = flags.FLAGS
 
-flags.DEFINE_integer('nt', None,'number of trees per sample')
-flags.DEFINE_integer('ns', None,'number of samples')
+flags.DEFINE_integer('k', None,'total number of input gene trees')
+flags.DEFINE_string('nt', None,'number of trees per sample, if there are multuple samples use comma seperated values')
+flags.DEFINE_string('ns', None,'number of samples, input multiple sample sizes with comma seperated values')
 flags.DEFINE_boolean('rep', False, 'whether draw samples with replacement | Default: False')
 flags.DEFINE_string('it', None,'path to input gene trees')
 flags.DEFINE_string('os', None,'path to samples folders to write sampled trees')
