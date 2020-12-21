@@ -1,12 +1,9 @@
-<<<<<<< HEAD:FASTRAL.py
+
 """
-@author:
+@author: Payam Dibaeinia
 """
 
 import numpy as np
-=======
-import numpy
->>>>>>> 30db6dc99e1e507eee570129ed7871e577ee56ff:ASTRALID.py
 import shutil
 from Sampler import gtSampler
 import time
@@ -65,7 +62,7 @@ class FASTRAL (object):
                 curr_cline += multi + ' -o ' + self.path_samples + str(s) + '/ASTRID_species_tree_' + str(s)
             else:
                 curr_cline += ' -o ' + self.path_samples + str(s) + '/ASTRID_species_tree_' + str(s)
-                
+
             print("     Running ASTRID on sample " + str(s), flush=True)
             status = os.system(curr_cline)
             if status < 0:

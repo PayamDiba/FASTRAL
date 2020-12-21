@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 """
-@author:
+@author: Payam Dibaeinia
 """
 
-=======
->>>>>>> 30db6dc99e1e507eee570129ed7871e577ee56ff
 import os
 
 
