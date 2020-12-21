@@ -53,9 +53,19 @@ class FASTRAL (object):
 
         print("START RUNNING ASTRID ... ", flush=True)
         cline = self.flags_.path_ASTRID + ' -i ' + self.path_samples
+        multi = None
+        if self.flags_.multi:
+            multi = ' -a {}'.format(self.flags_.multi)
+
+
 
         for s in range(self.nTotalS_):
-            curr_cline = cline + str(s) + '/sampledGeneTrees -o ' + self.path_samples + str(s) + '/ASTRID_species_tree_' + str(s)
+            curr_cline = cline + str(s) + '/sampledGeneTrees'
+            if multi:
+                curr_cline += multi + ' -o ' + self.path_samples + str(s) + '/ASTRID_species_tree_' + str(s)
+            else:
+                curr_cline += ' -o ' + self.path_samples + str(s) + '/ASTRID_species_tree_' + str(s)
+                
             print("     Running ASTRID on sample " + str(s), flush=True)
             status = os.system(curr_cline)
             if status < 0:

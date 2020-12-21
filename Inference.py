@@ -26,6 +26,7 @@ flags.DEFINE_string('path_ASTRAL', None,'path to ASTRAL')
 flags.DEFINE_string('aggregate', None,'path to write aggeregated species trees')
 flags.DEFINE_integer('heuristics', 0, 'heuristics level of ASTRAL | Default: 0')
 flags.DEFINE_string('o', None,'path to write ASTRAL output species tree')
+flags.DEFINE_string('multi', None,'if input gene trees contain multiple individuals, specify the path to the mapping file')
 
 def main(argv):
 
