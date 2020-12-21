@@ -32,7 +32,7 @@ def main(argv):
     make_dir(FLAGS.aggregate, writable = True)
     make_dir(FLAGS.o, writable = True)
 
-    method = ASTRALID(FLAGS)
+    method = FASTRAL(FLAGS)
     method.run()
 
 if __name__ == "__main__":
