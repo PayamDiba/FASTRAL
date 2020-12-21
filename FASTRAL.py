@@ -27,6 +27,10 @@ class FASTRAL (object):
         self.path_samples = self.flags_.os + '/Sample_'
         self.nTotalS_ = np.sum(ns)
 
+        self.multi = None
+        if self.flags_.multi:
+            self.multi = ' -a {}'.format(self.flags_.multi)
+
     def run(self):
         t1 = time.time()
         self._run_ASTRID()
@@ -50,16 +54,14 @@ class FASTRAL (object):
 
         print("START RUNNING ASTRID ... ", flush=True)
         cline = self.flags_.path_ASTRID + ' -i ' + self.path_samples
-        multi = None
-        if self.flags_.multi:
-            multi = ' -a {}'.format(self.flags_.multi)
+
 
 
 
         for s in range(self.nTotalS_):
             curr_cline = cline + str(s) + '/sampledGeneTrees'
-            if multi:
-                curr_cline += multi + ' -o ' + self.path_samples + str(s) + '/ASTRID_species_tree_' + str(s)
+            if self.multi:
+                curr_cline += self.multi + ' -o ' + self.path_samples + str(s) + '/ASTRID_species_tree_' + str(s)
             else:
                 curr_cline += ' -o ' + self.path_samples + str(s) + '/ASTRID_species_tree_' + str(s)
 
@@ -81,6 +83,8 @@ class FASTRAL (object):
     def _run_ASTRAL(self):
 
         cline = 'java -jar ' + self.flags_.path_ASTRAL + ' -i ' + self.flags_.it + ' -f ' + self.flags_.aggregate + ' -p ' + str(self.flags_.heuristics) + ' -o ' + self.flags_.o
+        if self.multi:
+            cline += self.multi
         print("START RUNNING ASTRAL ... ", flush=True)
         status = os.system(cline)
         if status < 0:
