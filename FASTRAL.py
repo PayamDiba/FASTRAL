@@ -19,9 +19,14 @@ class FASTRAL (object):
         ns = [int(i) for i in flags.ns.split(',')]
 
         self.flags_ = flags
+        if flags.incomp_id:
+            incomp_id = pd.read_csv(flags.incomp_id, header = None, index_col = None)
+            incomp_id = incomp_id.values.flatten()
+        else:
+            incomp_id = None
 
         print("START BUILDING SAMPLES ... ", flush=True)
-        sampler = gtSampler(nTree = nt, nSample = ns, k = flags.k, replacement = flags.rep, missingID = flags.incomp_id)
+        sampler = gtSampler(nTree = nt, nSample = ns, k = flags.k, replacement = flags.rep, missingID = incomp_id)
         sampler.create_samples(path_read = flags.it, path_write = flags.os)
 
         self.path_samples = self.flags_.os + '/Sample_'
