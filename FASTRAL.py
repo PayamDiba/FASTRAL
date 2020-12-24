@@ -21,7 +21,7 @@ class FASTRAL (object):
         self.flags_ = flags
 
         print("START BUILDING SAMPLES ... ", flush=True)
-        sampler = gtSampler(nTree = nt, nSample = ns, k = flags.k, replacement = flags.rep)
+        sampler = gtSampler(nTree = nt, nSample = ns, k = flags.k, replacement = flags.rep, missingID = flags.incomp_id)
         sampler.create_samples(path_read = flags.it, path_write = flags.os)
 
         self.path_samples = self.flags_.os + '/Sample_'

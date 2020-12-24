@@ -24,6 +24,7 @@ flags.DEFINE_string('aggregate', None,'path to write aggeregated species trees')
 flags.DEFINE_integer('heuristics', 0, 'heuristics level of ASTRAL | Default: 0')
 flags.DEFINE_string('o', None,'path to write ASTRAL output species tree')
 flags.DEFINE_string('multi', None,'if input gene trees contain multiple individuals, specify the path to the mapping file')
+flags.DEFINE_string('incomp_id', None,'specify the path to a file containing the IDs of incomplete gene trees. Not providing these IDs when input gene trees contain missing data can cause error.')
 
 def main(argv):
 
