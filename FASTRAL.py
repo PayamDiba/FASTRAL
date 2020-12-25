@@ -19,7 +19,7 @@ class FASTRAL (object):
         ns = [int(i) for i in flags.ns.split(',')]
 
         self.flags_ = flags
-        if flags.incomp_id:
+        if flags.incomp_id != None:
             incomp_id = pd.read_csv(flags.incomp_id, header = None, index_col = None)
             incomp_id = incomp_id.values.flatten()
         else:

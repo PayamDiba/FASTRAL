@@ -19,8 +19,8 @@ class gtSampler (object):
         self.replacement = replacement
         self.k = k
         self.misID = missingID
-        if missingID:
-            self.compID = np.setdiff1d(k,missingID, True)
+        if isinstance(missingID, np.ndarray):
+            self.compID = np.setdiff1d(range(k),missingID, True)
 
     def create_samples(self, path_read, path_write):
         """
@@ -51,13 +51,12 @@ class gtSampler (object):
                             fw.write('\n')
 
     def _getTrIDs(self,size):
-        if not self.misID:
+        if not isinstance(self.misID, np.ndarray):
             return np.random.choice(self.k, size, replace = self.replacement)
 
         else:
-            nComp = int(len(self.compID) * size / len(k))
+            nComp = int(len(self.compID) * size / self.k)
             nInComp = size - nComp
-
             compIDs = np.random.choice(self.compID, nComp, replace = self.replacement)
             inCompIDs = np.random.choice(self.misID, nInComp, replace = self.replacement)
             ret = np.concatenate((compIDs, inCompIDs))
