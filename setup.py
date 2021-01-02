@@ -31,6 +31,10 @@ setup(name=PACKAGE_NAME,
       url=URL,
       install_requires=INSTALL_REQUIRES,
       include_package_data=True,
-      packages=find_packages() + ['ASTRAL-modified','ASTRID']
-      
+      packages=find_packages() + ['ASTRAL-modified','ASTRID'],
+      entry_points ={'console_scripts': [ 'fastral = FASTRAL.fastral_infer:main']},
+      classifiers =(
+            "Programming Language :: Python :: 3",
+            "License :: OSI Approved :: MIT License", ),
+
       )
