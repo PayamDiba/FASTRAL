@@ -5,7 +5,7 @@
 from absl import flags
 from absl import logging
 from absl import app
-from FASTRAL import FASTRAL
+from fastral import FASTRAL
 from utils import make_dir
 
 
@@ -18,8 +18,8 @@ flags.DEFINE_boolean('rep', False, 'whether draw samples with replacement | Defa
 flags.DEFINE_string('it', None,'path to input gene trees')
 flags.DEFINE_string('os', None,'path to samples folders to write sampled trees')
 flags.DEFINE_string('time', None,'path to write running times')
-flags.DEFINE_string('path_ASTRID', None,'path to ASTRID')
-flags.DEFINE_string('path_ASTRAL', None,'path to ASTRAL')
+flags.DEFINE_string('path_ASTRID', 'ASTRID/ASTRID-linux','path to ASTRID')
+flags.DEFINE_string('path_ASTRAL', 'ASTRAL-modified/astral.5.7.3.jar','path to ASTRAL')
 flags.DEFINE_string('aggregate', None,'path to write aggeregated species trees')
 flags.DEFINE_integer('heuristics', 0, 'heuristics level of ASTRAL | Default: 0')
 flags.DEFINE_string('o', None,'path to write ASTRAL output species tree')
