@@ -8,8 +8,9 @@ To download FASTRAL, use the following command:
 
 ```pip install FASTRAL```
 
-Alternatively, you can clone this repo and run fastral_infer.py (see the bottom of the page).
+Alternatively, you can clone this repo and run fastral_infer.py (see the bottom of this page).
 
 ## Usage
 To get a quick help on the required flags for running ASTRAL, run:
+
 ```fastral -h```
