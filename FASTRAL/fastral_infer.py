@@ -18,7 +18,7 @@ def main():
     parser.add_argument('--k', type=int, default=None, help='total number of input gene trees', required = True)
     parser.add_argument('--it', type=str, default=None, help='path to input gene trees', required = True)
     parser.add_argument('--os', type=str, default=None, help='path to samples folders to write sampled trees', required = True)
-    parser.add_argument('--aggregate', type=str, default=None, help='path to write aggeregated species trees', required = True)
+    parser.add_argument('--aggregate', type=str, default=None, help='path to write aggregated species trees', required = True)
     parser.add_argument('--o', type=str, default=None, help='path to write FASTRAL output species tree', required = True)
     parser.add_argument('--time', type=str, default=None, help='path to write running times', required = True)
     parser.add_argument('--rep', action='store_true', help='whether draw samples with replacement | Default: False', required = False)
