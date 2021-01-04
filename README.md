@@ -14,3 +14,8 @@ Alternatively, you can clone this repo and run fastral_infer.py (see the bottom 
 To get a quick help on the required flags for running ASTRAL, run:
 
 ```fastral -h```
+
+The required flags for running FASTRAL are described below:
+
+* --ns: Number of sub-samples to be created. To specify multiple samples (containing different number of gene trees) use comma separated values
+* --nt: Number of trees per sample, if there are multiple samples use comma separated values
