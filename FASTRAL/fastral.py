@@ -5,7 +5,7 @@
 
 import numpy as np
 import shutil
-from Sampler import gtSampler
+from FASTRAL.Sampler import gtSampler
 import time
 import pandas as pd
 import os

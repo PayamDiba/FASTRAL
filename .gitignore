@@ -1,1 +1,4 @@
 .DS_Store
+dist/
+build/
+FASTRAL.egg-info/
