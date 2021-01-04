@@ -13,8 +13,8 @@ def main():
 
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--ns', type=str, default=None, help='number of samples, input multiple sample sizes with comma seperated values', required = True)
-    parser.add_argument('--nt', type=str, default=None, help='number of trees per sample, if there are multuple samples use comma seperated values', required = True)
+    parser.add_argument('--ns', type=str, default=None, help='number of samples, input multiple sample sizes with comma separated values', required = True)
+    parser.add_argument('--nt', type=str, default=None, help='number of trees per sample, if there are multiple samples use comma separated values', required = True)
     parser.add_argument('--k', type=int, default=None, help='total number of input gene trees', required = True)
     parser.add_argument('--it', type=str, default=None, help='path to input gene trees', required = True)
     parser.add_argument('--os', type=str, default=None, help='path to samples folders to write sampled trees', required = True)
