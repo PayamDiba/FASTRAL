@@ -28,7 +28,7 @@ The required flags for running FASTRAL are described below:
 
 The following flags are optional:
 * --rep: If specified, samples are created with replacement | Default (if not specified): Samples are created without replacement
-* --path_ASTRID: path to ASTRID's runtime | Default: linux runtime of ASTRID-2 ([version untagged-fdc5326080d364b87c5a](https://github.com/pranjalv123/ASTRID/releases/tag/untagged-fdc5326080d364b87c5a)) is used
+* --path_ASTRID: path to ASTRID's runtime | Default: ASTRID-2 ([version untagged-fdc5326080d364b87c5a](https://github.com/pranjalv123/ASTRID/releases/tag/untagged-fdc5326080d364b87c5a)) is used
 * --path_ASTRAL: Path to ASTRAL's runtime | Default: modified ASTRAL 5.7.3 is used
 * --heuristics: Heuristics level of ASTRAL (See ASTRAL's manual) | Default: 0
 * --multi: Required if input gene trees contain multiple individuals. Specify the path to the mapping file

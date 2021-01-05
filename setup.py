@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 HERE = pathlib.Path(__file__).parent
 
-VERSION = '0.5.3'
+VERSION = '0.5.11'
 PACKAGE_NAME = 'FASTRAL'
 AUTHOR = 'Payam Dibaeinia'
 AUTHOR_EMAIL = 'dibaein2@illinois.edu'

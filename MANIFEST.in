@@ -1,2 +1,9 @@
-recursive-include FASTRAL/ASTRAL-modified *
-recursive-include FASTRAL/ASTRID *
+recursive-include FASTRAL/ASTRAL-modified/lib *
+recursive-include FASTRAL/ASTRAL-modified/main *
+recursive-include FASTRAL/ASTRAL-modified LICENSE
+recursive-include FASTRAL/ASTRAL-modified *.md
+recursive-include FASTRAL/ASTRAL-modified *.py
+recursive-include FASTRAL/ASTRAL-modified make.sh
+recursive-include FASTRAL/ASTRAL-modified *.text
+recursive-include FASTRAL/ASTRID ASTRID-*
+recursive-include FASTRAL/ASTRID *.py
