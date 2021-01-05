@@ -1,1 +1,2 @@
-include ASTRAL-modified ASTRID
+recursive-include FASTRAL/ASTRAL-modified *
+recursive-include FASTRAL/ASTRID *

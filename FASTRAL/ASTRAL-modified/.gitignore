@@ -3,3 +3,4 @@
 main/test_data/*
 astral*jar
 old/*
+__pycache__/

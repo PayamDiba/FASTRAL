@@ -2,3 +2,4 @@
 dist/
 build/
 FASTRAL.egg-info/
+__pycache__/

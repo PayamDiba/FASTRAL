@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 HERE = pathlib.Path(__file__).parent
 
-VERSION = '0.5.2'
+VERSION = '0.5.3'
 PACKAGE_NAME = 'FASTRAL'
 AUTHOR = 'Payam Dibaeinia'
 AUTHOR_EMAIL = 'dibaein2@illinois.edu'
@@ -31,7 +31,7 @@ setup(name=PACKAGE_NAME,
       url=URL,
       install_requires=INSTALL_REQUIRES,
       include_package_data=True,
-      packages=find_packages() + ['ASTRAL-modified','ASTRID'],
+      packages=find_packages(),
       entry_points ={'console_scripts': [ 'fastral = FASTRAL.fastral_infer:main']},
       classifiers =(
             "Programming Language :: Python :: 3",
