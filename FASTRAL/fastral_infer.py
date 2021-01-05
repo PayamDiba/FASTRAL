@@ -5,6 +5,9 @@
 import argparse
 from FASTRAL.fastral import FASTRAL
 from FASTRAL.utils import make_dir
+import os
+import warnings
+import subprocess
 
 
 
@@ -23,12 +26,21 @@ def main():
     parser.add_argument('--time', type=str, default=None, help='path to write running times', required = True)
     parser.add_argument('--rep', action='store_true', help='whether draw samples with replacement | Default: False', required = False)
     parser.add_argument('--path_ASTRID', type=str, default='ASTRID/ASTRID-linux', help='path to ASTRID | Default: linux runtime of ASTRID-2 (version untagged-fdc5326080d364b87c5a) is used (see: https://github.com/pranjalv123/ASTRID/releases/tag/untagged-fdc5326080d364b87c5a)', required = False)
-    parser.add_argument('--path_ASTRAL', type=str, default='ASTRAL-modified/astral.5.7.3.jar', help='path to ASTRAL | Default: modified ASTRAL 5.7.3 is used', required = False)
+    parser.add_argument('--path_ASTRAL', type=str, default='ASTRAL-modified/astral.5.7.3.modified.jar', help='path to ASTRAL | Default: modified ASTRAL 5.7.3 is used', required = False)
     parser.add_argument('--heuristics', type=int, default=0, help='heuristics level of ASTRAL | Default: 0', required = False)
     parser.add_argument('--multi', type=str, default=None, help='if input gene trees contain multiple individuals, specify the path to the mapping file', required = False)
     parser.add_argument('--incomp_id', type=str, default=None, help='(Optional) Path to a file containing the IDs of incomplete gene trees. If specified, sampling step makes sure that each sub-sample contains complete gene trees.', required = False)
 
     FLAGS = parser.parse_args()
+
+    if not os.path.exists(FLAGS.path_ASTRAL):
+        warnings.warn("This is the first time you are using FASTRAL! Let's build dependencies...")
+        cm = "cd ../ASTRAL-modified \n sh make.sh"
+
+        p = subprocess.Popen(cm, shell=True)
+        (output, err) = p.communicate()
+        p_status = p.wait()
+
 
     make_dir(FLAGS.os)
     make_dir(FLAGS.time, writable = True)
