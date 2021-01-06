@@ -11,9 +11,8 @@ To download FASTRAL, use the following command:
 
 ```pip install FASTRAL```
 
-
 ## Usage
-To get a quick help on the required flags for running ASTRAL, run:
+To get a quick help on the required flags for running FASTRAL, run:
 
 ```fastral -h```
 
@@ -35,3 +34,14 @@ The following flags are optional:
 * --heuristics: Heuristics level of ASTRAL (See ASTRAL's manual) | Default: 0
 * --multi: Required if input gene trees contain multiple individuals. Specify the path to the mapping file
 * --incomp_id: (In multi-individual mode; optional) Path to a file containing the IDs of incomplete gene trees (zero-based). If specified, sampling step makes sure that each sub-sample contains at least one complete gene trees.
+
+## Running on multi-individual datasets
+When input gene trees contain multiple individuals per species, FASTRAL requires a mapping file to be passed with ```--multi``` flag. This mapping file should have one line per species in the following format:
+
+```
+species_name: individual_1, individual_2, ...
+```
+
+An example of mapping file is provided in the ```example/data``` directory.
+
+Also, if missing data is present and sub-samples containing at least one complete gene tree is required, the IDs of incomplete gene trees can be passed to FASTRAL using ```--incomp_id``` flag. IDs are indices (zero-based) of incomplete gene trees and this file should have one ID per line. An example of such missing_ids file is provided in the ```example/data``` directory.
